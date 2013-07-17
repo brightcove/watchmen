@@ -19,7 +19,10 @@
     "rabbitmq"
   ],
   "author": "",
-  "license": "Apache 2.0",
+  "license": {
+    "type": "Apache 2.0",
+    "url": "https://github.com/brightcove/watchmen/blob/master/LICENSE"
+  },
   "readmeFilename": "README.md",
   "preferGlobal": true,
   "gitHead": "13c727aee1a01150f7a9555f46c0776cbc2028ea",
