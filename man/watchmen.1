@@ -1,0 +1,109 @@
+.TH "WATCHMEN" "1" "July 2013" "" ""
+.SH "NAME"
+\fBwatchmen\fR
+.SH Synopsis
+.P
+.RS 2
+.EX
+watchmen [\-?] [\-i (\-|amqp|heartbeat|REST|redis)] [\-o (\-|amqp|REST|redis)]  
+         \-i amqp [\-\-ih host] [\-\-ip port] [\-\-iv vhost] [\-\-ie exchange] [\-\-ik routingKey]  
+         \-i heartbeat [\-\-id delay] [\-\-ik routingKey]  
+         \-i redis [\-\-ih host] [\-\-ip port] [\-\-iv vhost] [\-\-ik routingKey]  
+         \-i REST \-\-iu url [\-\-id delay]  
+         \-o amqp [\-\-oh host] [\-\-op port] [\-\-ov vhost] [\-\-oe exchange]  
+         \-o redis [\-\-oh host] [\-\-op port] [\-\-ov vhost]  
+         \-o REST \-\-ou url
+.EE
+.RE
+.SS Usage examples:
+.P
+sends stdin to a rabbitmq endpoint
+.br
+\fBwatchmen \-\-output amqp \-\-output\-host dev\.rabbitmq\.com\fR
+.P
+from rabbitmq to another rabbitmq
+.br
+\fBwatchmen \-\-input amqp \-\-input\-host jimbo \-\-output amqp \-\-output\-host dev\.rabbitmq\.com\fR
+.P
+from rabbitmq to redis
+.br
+\fBwatchmen \-\-input amqp \-\-input\-host jimbo \-\-output redis \-\-output\-host jimbo \-\-output\-port 6379\fR
+.P
+from stdin to a REST endpoint (couchdb in this example)
+.br
+\fBwatchmen \-\-output REST \-\-output\-url http://jimbo:5984/watchmen/\fR
+.P
+Additional input and output options depend on the kind of input or output in use\.
+.SH Description
+.P
+A Swiss Army Knife of input and output piping\.
+.SH Options
+.P
+Inputs:
+.P
+\fB\-\fR : standard input, a stream of line delimited JSON encoded messages (default)  
+.P
+\fBheartbeat\fR : generates heartbeat messages at a steady interval
+.br
+    input\-routing\-key : the routingKey to use for generated messages
+.br
+    input\-delay : frequency in milliseconds to send a heartbeat  
+.P
+\fBamqp\fR : RabbitMQ, creates a queue and binds to an exchange
+.br
+    input\-exchange : the RabbitMQ exchange to bind to
+.br
+    input\-routing\-key : used when binding the queue to the exchange, the topic filter
+.br
+    input\-host : host name of the RabbitMQ server
+.br
+    input\-port : port number of the RabbitMQ service
+.br
+    input\-vhost : virtual host for exchange/queue namespacing  
+.P
+\fBredis\fR : reads messages from a LIST
+.br
+    input\-routing\-key : the key to the LIST containing messages
+.br
+    input\-host : host name of the Redis server
+.br
+    input\-port : port number of the Redis service  
+.P
+\fBREST\fR : polls a REST endpoint for changes by sending HEAD requests at regular intervals
+.br
+    input\-routing\-key : the routingKey to use for generated messages
+.br
+    input\-url : the REST URL to poll for changes
+.br
+    input\-delay : frequency in milliseconds to poll the URL  
+.P
+Outputs:
+.P
+\fB\-\fR : standard output, a stream of line delimited JSON encoded messages (default)  
+.P
+\fBamqp\fR : RabbitMQ, publishes messages to an exchange
+.br
+    output\-exchange : the RabbitMQ exchange to publish messages to
+.br
+    output\-host : host name of the RabbitMQ server
+.br
+    output\-port : port number of the RabbitMQ service
+.br
+    output\-vhost : virtual host for exchange/queue namespacing  
+.P
+\fBredis\fR : appends each message to LIST based on its routingKey
+.br
+    output\-host : host name of the Redis server
+.br
+    output\-port : port number of the Redis service  
+.P
+\fBREST\fR : POST the message body to a REST endpoint
+.br
+    output\-url : the REST endpoint to POST messages to  
+.P
+\fBsse\fR : Server\-Sent Events, creates HTTP server
+.br
+    output\-port : the port to bind for HTTP server
+.br
+    output\-url : the REST endpoint to POST messages to  
+
