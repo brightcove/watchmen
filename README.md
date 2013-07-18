@@ -1,4 +1,5 @@
 # Watchmen
+[![NPM](https://nodei.co/npm/watchmen.png)](https://nodei.co/npm/watchmen/)
 
 Lots of systems have state.
 They store data, and sometimes that data changes.
@@ -14,8 +15,8 @@ Watchmen runs on Node.js and primarily uses RabbitMQ for publishing and dispatch
 If you already have Node.js installed and you have a RabbitMQ server ready to target, you can install watchmen through npm:
 
 ```sh
-$ npm install
-$ npm link
+$ npm install -g watchmen  # to run the CLI
+$ npm install watchmen     $ to run it programatically
 ```
 
 This will make the `watchmen` command available via the command line.
