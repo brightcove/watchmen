@@ -1,10 +1,9 @@
 {
   "name": "watchmen",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Who watches the watchmen?",
   "main": "index.js",
   "scripts": {
-    "test": "grunt test",
     "prepublish": "./node_modules/.bin/marked-man doc/usage.md > man/watchmen.1"
   },
   "bin": {
@@ -13,12 +12,27 @@
   "man": "./man/watchmen.1",
   "repository": {
     "type": "git",
-    "url": "git@bithub.brightcove.com:videocloud/watchmen.git"
+    "url": "https://github.com/brightcove/watchmen"
+  },
+  "bugs": "https://github.com/brightcove/watchmen/issues",
+  "directories": {
+    "doc": "./doc",
+    "man": "./man",
+    "lib": "./lib",
+    "bin": "./bin"
   },
   "keywords": [
-    "rabbitmq"
+    "rabbitmq",
+    "amqp",
+    "redis",
+    "sse",
+    "server-sent events"
   ],
-  "author": "",
+  "author": "Gary Katsevman <me@gkatsev.com> (http://gkatsev.com)",
+  "contributors": [
+    "Jim R. Wilson <wilson.jim.r@gmail.com>",
+    "Gary Katsevman <me@gkatsev.com> (http://gkatsev.com)"
+  ],
   "license": {
     "type": "Apache 2.0",
     "url": "https://github.com/brightcove/watchmen/blob/master/LICENSE"
