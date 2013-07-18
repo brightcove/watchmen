@@ -5,10 +5,14 @@
  */
 'use strict';
 
-module.exports = function(args) {
-  var
-    optimist = require('./lib/options.js')(args),
-    main = require('./lib/main.js');
+var
+  options = require('./lib/options.js'),
+  main = require('./lib/main.js');
 
-  main(optimist.argv);
+module.exports = function(args) {
+  return main(options(args).argv);
 }
+
+module.exports.inputs = require('./lib/inputs/index.js');
+module.exports.outputs = require('./lib/outputs/index.js');
+
