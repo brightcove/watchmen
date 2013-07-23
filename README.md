@@ -1,7 +1,7 @@
 # Watchmen
-[![NPM](https://nodei.co/npm/watchmen.png)](https://nodei.co/npm/watchmen/)
 [![Dependency Status](https://david-dm.org/brightcove/watchmen.png)](https://david-dm.org/brightcove/watchmen)
-[![devDependency Status](https://david-dm.org/brightcove/watchmen/dev-status.png)](https://david-dm.org/brightcove/watchmen#info=devDependencies)
+[![devDependency Status](https://david-dm.org/brightcove/watchmen/dev-status.png)](https://david-dm.org/brightcove/watchmen#info=devDependencies)  
+[![NPM](https://nodei.co/npm/watchmen.png)](https://nodei.co/npm/watchmen/)
 
 Lots of systems have state.
 They store data, and sometimes that data changes.
