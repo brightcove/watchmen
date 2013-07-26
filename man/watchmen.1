@@ -6,11 +6,11 @@
 .RS 2
 .EX
 watchmen [\-h] [\-i (\-|amqp|heartbeat|REST|redis)] [\-o (\-|amqp|REST|redis)]  
-         \-i amqp [\-\-ih host] [\-\-ip port] [\-\-iv vhost] [\-\-ie exchange] [\-\-ik routingKey]  
+         \-i amqp [\-\-ih host] [\-\-ip port] [\-\-iv vhost] [\-\-ie exchange] [\-\-ik routingKey] [\-\-ib backoff]  
          \-i heartbeat [\-\-id delay] [\-\-ik routingKey]  
          \-i redis [\-\-ih host] [\-\-ip port] [\-\-iv vhost] [\-\-ik routingKey]  
          \-i REST \-\-iu url [\-\-id delay]  
-         \-o amqp [\-\-oh host] [\-\-op port] [\-\-ov vhost] [\-\-oe exchange]  
+         \-o amqp [\-\-oh host] [\-\-op port] [\-\-ov vhost] [\-\-oe exchange] [\-\-ib backoff]  
          \-o redis [\-\-oh host] [\-\-op port] [\-\-ov vhost]  
          \-o REST \-\-ou url
 .EE
@@ -36,7 +36,7 @@ from stdin to a REST endpoint (couchdb in this example)
 Additional input and output options depend on the kind of input or output in use\.
 .SH Description
 .P
-A Swiss Army Knife of input and output piping\.
+A Swiss Army Knife for message routing between systems\.
 .SH Options
 .P
 Inputs:
@@ -59,7 +59,9 @@ Inputs:
 .br
     input\-port : port number of the RabbitMQ service
 .br
-    input\-vhost : virtual host for exchange/queue namespacing  
+    input\-vhost : virtual host for exchange/queue namespacing
+.br
+    input\-backoff : time in ms to wait before retrying a failed connection  
 .P
 \fBredis\fR : reads messages from a LIST
 .br
@@ -89,7 +91,9 @@ Outputs:
 .br
     output\-port : port number of the RabbitMQ service
 .br
-    output\-vhost : virtual host for exchange/queue namespacing  
+    output\-vhost : virtual host for exchange/queue namespacing
+.br
+    output\-backoff : time in ms to wait before retrying a failed connection  
 .P
 \fBredis\fR : appends each message to LIST based on its routingKey
 .br
