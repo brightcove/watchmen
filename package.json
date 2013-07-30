@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prepublish": "./node_modules/.bin/marked-man doc/usage.md > man/watchmen.1",
-    "test": "tape test/*.js"
+    "test": "node test/*.js"
   },
   "bin": {
     "watchmen": "./bin/watchmen.js"
