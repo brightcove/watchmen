@@ -4,7 +4,8 @@
   "description": "Who watches the watchmen?",
   "main": "index.js",
   "scripts": {
-    "prepublish": "./node_modules/.bin/marked-man doc/usage.md > man/watchmen.1"
+    "prepublish": "./node_modules/.bin/marked-man doc/usage.md > man/watchmen.1",
+    "test": "tape test/*.js"
   },
   "bin": {
     "watchmen": "./bin/watchmen.js"
