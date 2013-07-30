@@ -1,5 +1,5 @@
 # Watchmen
-[![Build Status](https://travis-ci.org/brightcove/watchmen.png?branch=tests)](https://travis-ci.org/brightcove/watchmen)
+[![Build Status](https://travis-ci.org/brightcove/watchmen.png?branch=master)](https://travis-ci.org/brightcove/watchmen)
 [![Dependency Status](https://david-dm.org/brightcove/watchmen.png)](https://david-dm.org/brightcove/watchmen)
 [![devDependency Status](https://david-dm.org/brightcove/watchmen/dev-status.png)](https://david-dm.org/brightcove/watchmen#info=devDependencies)  
 [![NPM](https://nodei.co/npm/watchmen.png)](https://nodei.co/npm/watchmen/)
