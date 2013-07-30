@@ -49,6 +49,7 @@
     "express": "~3.3.4"
   },
   "devDependencies": {
-    "marked-man": "0.0.2"
+    "marked-man": "0.0.2",
+    "tape": "~1.0.4"
   }
 }
