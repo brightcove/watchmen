@@ -46,7 +46,9 @@
     "optimist": "~0.6.0",
     "redis": "~0.8.4",
     "request": "~2.22",
-    "express": "~3.3.4"
+    "express": "~3.3.4",
+    "level": "~0.16.0",
+    "cors": "~1.0.1"
   },
   "devDependencies": {
     "marked-man": "0.0.2"
