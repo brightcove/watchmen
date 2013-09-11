@@ -5,11 +5,11 @@ watchmen(1)
 
 ```sh
 watchmen [-h] [-i (-|amqp|heartbeat|REST|redis)] [-o (-|amqp|REST|redis)]  
-         -i amqp [--ih host] [--ip port] [--iv vhost] [--ie exchange] [--ik routingKey]  
+         -i amqp [--ih host] [--ip port] [--iv vhost] [--ie exchange] [--ik routingKey] [--ib backoff]  
          -i heartbeat [--id delay] [--ik routingKey]  
          -i redis [--ih host] [--ip port] [--iv vhost] [--ik routingKey]  
          -i REST --iu url [--id delay]  
-         -o amqp [--oh host] [--op port] [--ov vhost] [--oe exchange]  
+         -o amqp [--oh host] [--op port] [--ov vhost] [--oe exchange] [--ib backoff]  
          -o redis [--oh host] [--op port] [--ov vhost]  
          -o REST --ou url  
 ```
@@ -32,7 +32,7 @@ Additional input and output options depend on the kind of input or output in use
 
 ## Description
 
-A Swiss Army Knife of input and output piping.
+A Swiss Army Knife for message routing between systems.
 
 ## Options
 
@@ -50,6 +50,7 @@ Inputs:
 	input-host : host name of the RabbitMQ server  
 	input-port : port number of the RabbitMQ service  
 	input-vhost : virtual host for exchange/queue namespacing  
+	input-backoff : time in ms to wait before retrying a failed connection  
 
 `redis` : reads messages from a LIST  
 	input-routing-key : the key to the LIST containing messages  
@@ -70,6 +71,7 @@ Outputs:
 	output-host : host name of the RabbitMQ server  
 	output-port : port number of the RabbitMQ service  
 	output-vhost : virtual host for exchange/queue namespacing  
+	output-backoff : time in ms to wait before retrying a failed connection  
 
 `redis` : appends each message to LIST based on its routingKey  
 	output-host : host name of the Redis server  

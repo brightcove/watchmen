@@ -4,7 +4,8 @@
   "description": "Who watches the watchmen?",
   "main": "index.js",
   "scripts": {
-    "prepublish": "./node_modules/.bin/marked-man doc/usage.md > man/watchmen.1"
+    "prepublish": "./node_modules/.bin/marked-man doc/usage.md > man/watchmen.1",
+    "test": "node test/*.js"
   },
   "bin": {
     "watchmen": "./bin/watchmen.js"
@@ -42,15 +43,18 @@
   "gitHead": "13c727aee1a01150f7a9555f46c0776cbc2028ea",
   "dependencies": {
     "amqp": "~0.1",
-    "hiredis": "~0.1.15",
     "optimist": "~0.6.0",
     "redis": "~0.8.4",
-    "request": "~2.22",
+    "request": "~2.25.0",
     "express": "~3.3.4",
     "level": "~0.16.0",
     "cors": "~1.0.1"
   },
   "devDependencies": {
-    "marked-man": "0.0.2"
+    "marked-man": "0.0.2",
+    "tape": "~1.0.4"
+  },
+  "optionalDependencies": {
+    "hiredis": "~0.1.15"
   }
 }
